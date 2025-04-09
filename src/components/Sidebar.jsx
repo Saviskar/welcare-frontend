@@ -3,23 +3,20 @@ import React from "react";
 function Sidebar() {
   return (
     <>
-      <div className="bg-gray-900 text-white rounded-xl p-4 flex flex-col justify-between">
+      <div className="bg-gradient-to-b from-indigo-900 via-purple-800 to-blue-900 text-white rounded-xl p-4 flex flex-col justify-between">
         <div>
           <h2 className="text-xl font-bold mb-6">Welcare System</h2>
-          <p className="text-sm text-gray-400 mb-2">Main menu</p>
+          <p className="text-sm text-gray-300 mb-2">Main menu</p>
           <ul className="space-y-2">
-            <li className="flex items-center gap-2 bg-gray-800 px-3 py-2 rounded-lg">
+            <li className="flex items-center gap-2 bg-purple-700 px-3 py-2 rounded-lg">
               <span>{/*🏠*/}</span> Dashboard
             </li>
-            <li className="flex items-center gap-2 hover:bg-gray-800 px-3 py-2 rounded-lg cursor-pointer">
+            <li className="flex items-center gap-2 hover:bg-purple-700 px-3 py-2 rounded-lg cursor-pointer">
               <span>{/*📋*/}</span> Billing
             </li>
-            <li className="flex items-center gap-2 hover:bg-gray-800 px-3 py-2 rounded-lg cursor-pointer">
+            <li className="flex items-center gap-2 hover:bg-purple-700 px-3 py-2 rounded-lg cursor-pointer">
               <span>{/*👥*/}</span> View All Guests
             </li>
-            {/* <li className="flex items-center gap-2 hover:bg-gray-800 px-3 py-2 rounded-lg cursor-pointer">
-              <span>➕</span> Create Guests
-            </li> */}
           </ul>
         </div>
 
