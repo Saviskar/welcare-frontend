@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "./Sidebar.jsx";
-import Registerguests from "./Registerguests.jsx";
+import Sidebar from "../components/Sidebar.jsx";
+import Registerguests from "../components/RegisterGuestForm.jsx";
 
 function Home() {
   return (
