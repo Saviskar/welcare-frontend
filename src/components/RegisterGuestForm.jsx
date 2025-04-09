@@ -18,7 +18,7 @@ function Registerguests() {
           <input
             type="text"
             id="surname"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500 transition"
             placeholder="Enter surname"
           />
         </div>
@@ -33,7 +33,7 @@ function Registerguests() {
           <input
             type="text"
             id="givenNames"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter given names"
           />
         </div>
@@ -49,7 +49,7 @@ function Registerguests() {
           <input
             type="text"
             id="preferredNames"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter preferred names"
           />
         </div>
@@ -64,7 +64,7 @@ function Registerguests() {
           <input
             type="number"
             id="age"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter age"
           />
         </div>
@@ -80,7 +80,7 @@ function Registerguests() {
           <input
             type="text"
             id="maritalStatus"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter marital status"
           />
         </div>
@@ -95,7 +95,7 @@ function Registerguests() {
           <input
             type="text"
             id="currentLocation"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter location"
           />
         </div>
@@ -111,7 +111,7 @@ function Registerguests() {
           <input
             type="text"
             id="postcode"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter postcode"
           />
         </div>
@@ -126,7 +126,7 @@ function Registerguests() {
           <input
             type="tel"
             id="telephone"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter telephone number"
           />
         </div>
@@ -142,7 +142,7 @@ function Registerguests() {
           <input
             type="text"
             id="religion"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter religion"
           />
         </div>
@@ -157,7 +157,7 @@ function Registerguests() {
           <input
             type="text"
             id="countryOfBirth"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter country"
           />
         </div>
@@ -173,7 +173,7 @@ function Registerguests() {
           <input
             type="text"
             id="preferredLanguage"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter language"
           />
         </div>
@@ -188,20 +188,19 @@ function Registerguests() {
           <input
             type="text"
             id="electoralRollStatus"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
             placeholder="Enter status"
           />
         </div>
 
         {/* Submit */}
         <div className="md:col-span-2 text-right mt-2">
-          {/* <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md font-medium transition"
-            >
-              Submit
-            </button> */}
-          <button className="btn btn-primary">Hello World!</button>
+          <button
+            type="submit"
+            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </>
