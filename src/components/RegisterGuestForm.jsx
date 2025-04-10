@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Registerguests() {
   return (
@@ -195,6 +196,12 @@ function Registerguests() {
 
         {/* Submit */}
         <div className="md:col-span-2 text-right mt-2">
+          <Link
+            to="/familyContact"
+            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
+          >
+            Next
+          </Link>
           <button
             type="submit"
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition"
