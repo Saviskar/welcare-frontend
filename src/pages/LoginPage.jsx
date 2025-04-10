@@ -1,4 +1,5 @@
 import React from "react";
+import FormInput from "../components/FormInput";
 
 function LoginPage() {
   return (
@@ -9,31 +10,18 @@ function LoginPage() {
         </h2>
         <form>
           <div className="mb-4">
-            <label className="block text-sm mb-2 text-gray-700" htmlFor="email">
-              Email Address
-            </label>
-            <input
-              type="email"
+            <FormInput
+              label="Email Address"
               id="email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg 
-             focus:outline-none focus:ring-2 focus:ring-purple-500 
-             transition-all duration-200"
+              type="email"
               placeholder="Enter your email"
             />
           </div>
           <div className="mb-6">
-            <label
-              className="block text-sm mb-2 text-gray-700"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              type="password"
+            <FormInput
+              label="Password"
               id="password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg 
-             focus:outline-none focus:ring-2 focus:ring-purple-500 
-             transition-all duration-200"
+              type="password"
               placeholder="Enter your password"
             />
           </div>
