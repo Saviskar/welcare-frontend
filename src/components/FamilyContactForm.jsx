@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import FormInput from "./FormInput";
+import Home from "../pages/Home";
 
 function FamilyContactForm() {
   return (
@@ -101,6 +102,12 @@ function FamilyContactForm() {
 
         {/* Submit Buttons */}
         <div className="md:col-span-2 text-right mt-2">
+          <Link
+            to="/Home"
+            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
+          >
+            Back
+          </Link>
           <Link
             to=""
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
