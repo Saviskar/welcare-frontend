@@ -58,11 +58,6 @@ function Registerguests() {
           id="preferredLanguage"
           placeholder="Enter language"
         />
-        <FormInput
-          label="Electoral Roll Status"
-          id="electoralRollStatus"
-          placeholder="Enter status"
-        />
 
         {/* Submit Buttons */}
         <div className="md:col-span-2 text-right mt-2">

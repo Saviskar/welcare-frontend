@@ -21,6 +21,7 @@ function Sidebar() {
               <span>{showSubmenu ? "▾" : "▸"}</span>
             </div>
 
+            {/* If showSubMenu is true then show (<ul className> <li> ......</li></ul>) -> these stuff */}
             {showSubmenu && (
               <ul className="ml-4 mt-4 space-y-2 text-sm text-gray-300">
                 <li className="hover:text-white cursor-pointer">
@@ -38,7 +39,7 @@ function Sidebar() {
                 </li>
                 <li className="hover:text-white cursor-pointer">Care Needs</li>
                 <li className="hover:text-white cursor-pointer">
-                  Funeral Arrangements
+                  Funeral Arrangements1
                 </li>
               </ul>
             )}

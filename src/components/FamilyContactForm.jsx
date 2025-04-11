@@ -44,7 +44,7 @@ function FamilyContactForm() {
           placeholder="Enter after-hours phone"
         />
         <FormInput
-          label="Relationship to Guest"
+          label="First Contact Relationship to Guest"
           id="relationshipToGuest"
           placeholder="Enter relationship"
         />
@@ -89,7 +89,7 @@ function FamilyContactForm() {
           placeholder="Enter after-hours phone"
         />
         <FormInput
-          label="Relationship to Guest"
+          label="Second Contact Relationship to Guest"
           id="relationshipToGueet"
           placeholder="Enter relationship"
         />
