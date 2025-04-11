@@ -7,97 +7,52 @@ function FamilyContactForm() {
   return (
     <>
       <h2 className="text-xl font-semibold mb-6 text-gray-700">
-        Family Contact Details
+        Guardian Contact Details
       </h2>
       <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* First Contact */}
         <FormInput
-          label="First Contact Surname"
-          id="firstContactSurname"
+          label="Guardian Surname"
+          id="guardianSurname"
           placeholder="Enter surname"
         />
+
         <FormInput
-          label="First Contact Given Name"
-          id="firstContactGivenName"
+          label="Guardian Given Name"
+          id="guardianGivenName"
           placeholder="Enter given name"
         />
+
         <FormInput
-          label="First Contact Address"
-          id="firstContactAddress"
+          label="Guardian Address"
+          id="guardianAddress"
           placeholder="Enter address"
         />
+
         <FormInput
-          label="First Contact Postcode"
-          id="firstContactPostcode"
+          label="Guardian Postcode"
+          id="guardianPostcode"
           placeholder="Enter postcode"
         />
+
         <FormInput
-          label="First Contact Telephone (Daily)"
-          id="firstContactTelephoneDaily"
+          label="Guardian Mobile"
+          id="guardianMobile"
           type="tel"
-          placeholder="Enter daily phone"
+          placeholder="Enter mobile number"
         />
+
         <FormInput
-          label="First Contact Telephone (After Hours)"
-          id="firstContactTelephoneAfterHours"
-          type="tel"
-          placeholder="Enter after-hours phone"
-        />
-        <FormInput
-          label="First Contact Relationship to Guest"
-          id="relationshipToGuest"
-          placeholder="Enter relationship"
-        />
-        <FormInput
-          label="First Contact Email"
-          id="firstContactEmail"
+          label="Guardian Email"
+          id="guardianEmail"
           type="email"
           placeholder="Enter email"
         />
 
-        {/* Second Contact */}
         <FormInput
-          label="Second Contact Surname"
-          id="secondContactSurname"
-          placeholder="Enter surname"
-        />
-        <FormInput
-          label="Second Contact Given Name"
-          id="secondContactGivenName"
-          placeholder="Enter given name"
-        />
-        <FormInput
-          label="Second Contact Address"
-          id="secondContactAddress"
-          placeholder="Enter address"
-        />
-        <FormInput
-          label="Second Contact Postcode"
-          id="secondContactPostcode"
-          placeholder="Enter postcode"
-        />
-        <FormInput
-          label="Second Contact Telephone (Daily)"
-          id="secondContactTelephoneDaily"
-          type="tel"
-          placeholder="Enter daily phone"
-        />
-        <FormInput
-          label="Second Contact Telephone (After Hours)"
-          id="secondContactTelephoneAfterHours"
-          type="tel"
-          placeholder="Enter after-hours phone"
-        />
-        <FormInput
-          label="Second Contact Relationship to Guest"
-          id="relationshipToGueet"
+          label="Guardian Relationship to Guest"
+          id="guardianRelationship"
           placeholder="Enter relationship"
-        />
-        <FormInput
-          label="Second Contact Email"
-          id="secondContactEmail"
-          type="email"
-          placeholder="Enter email"
         />
 
         {/* Submit Buttons */}

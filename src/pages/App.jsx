@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import LoginPage from "./LoginPage";
 import HomePg2 from "./HomePg2";
+import HomePg3 from "./HomePg3";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<Home />} /> {/* Guest Details Page*/}
-        <Route path="/familyContact" element={<HomePg2 />} />{" "}
+        <Route path="/familyContact" element={<HomePg2 />} />
         {/* Family Contacts Details Page*/}
+        <Route path="/guardianContact" element={<HomePg3 />} />
       </Routes>
     </BrowserRouter>
   );
