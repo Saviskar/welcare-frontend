@@ -4,6 +4,7 @@ import Home from "./Home";
 import LoginPage from "./LoginPage";
 import HomePg2 from "./HomePg2";
 import HomePg3 from "./HomePg3";
+import ViewAllGuest from "./ViewAllGuest";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/familyContact" element={<HomePg2 />} />
         {/* Family Contacts Details Page*/}
         <Route path="/guardianContact" element={<HomePg3 />} />
+        <Route path="/viewAllGuest" element={<ViewAllGuest />} />
       </Routes>
     </BrowserRouter>
   );
