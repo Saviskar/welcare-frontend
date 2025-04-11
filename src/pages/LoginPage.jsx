@@ -3,9 +3,9 @@ import FormInput from "../components/FormInput";
 
 function LoginPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-purple-800 to-blue-900 flex flex-col items-center justify-center">
-      <div className="bg-white p-8 rounded-xl shadow-2xl w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-purple-800 to-blue-900 flex flex-col items-center justify-center px-4">
+      <div className="bg-white p-6 sm:p-8 rounded-xl shadow-2xl w-full max-w-sm">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-800">
           Login
         </h2>
         <form>
@@ -35,7 +35,7 @@ function LoginPage() {
       </div>
 
       {/* Developer identity footer */}
-      <p className="mt-6 text-sm text-white opacity-70">
+      <p className="mt-6 text-sm text-white opacity-70 text-center px-4">
         © {new Date().getFullYear()} | Built with ❤️ by Saviskar Thiruchelvam
       </p>
     </div>
