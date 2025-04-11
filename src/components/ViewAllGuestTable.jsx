@@ -35,8 +35,11 @@ function ViewAllGuest() {
               <td className="px-4 py-3">English</td>
               <td className="px-4 py-3">
                 <div className="flex gap-2">
+                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
+                    View
+                  </button>
                   <button className="bg-violet-500 hover:bg-violet-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
-                    Update
+                    Edit
                   </button>
                   <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
                     Delete
