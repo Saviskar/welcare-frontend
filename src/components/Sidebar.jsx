@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
 function Sidebar() {
-  // UI States
   const [showSubmenu, setShowSubmenu] = useState(true);
   const [activeItem, setActiveItem] = useState("");
 
-  // Set the text as active function
   const handleActive = (item) => {
     setActiveItem(item);
   };
@@ -19,31 +17,30 @@ function Sidebar() {
           {/* Dashboard with Submenu */}
           <li>
             <div
-              onClick={() => setShowSubmenu(!showSubmenu)}
-              className={`flex items-center justify-between bg-purple-700 px-3 py-2 rounded-lg cursor-pointer`}
+              onClick={() => {
+                setShowSubmenu(!showSubmenu);
+                handleActive("Dashboard");
+              }}
+              className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer ${
+                activeItem === "Dashboard"
+                  ? "bg-purple-700 text-white"
+                  : "hover:bg-purple-700"
+              }`}
             >
-              <span className="flex items-center gap-2">
-                {/*🏠*/} Dashboard
-              </span>
+              <span className="flex items-center gap-2">Dashboard</span>
               <span>{showSubmenu ? "▾" : "▸"}</span>
             </div>
 
             {showSubmenu && (
               <ul className="ml-4 mt-4 space-y-2 text-sm text-gray-300">
-                {[
-                  "Guest Details",
-                  "Family Contact",
-                  "Guardian",
-                  "Medical Details",
-                  "Living Situation",
-                  "Care Needs",
-                  "Funeral Arrangements1",
-                ].map((item) => (
+                {["Guest Details", "Family Contact", "Guardian"].map((item) => (
                   <li
                     key={item}
                     onClick={() => handleActive(item)}
-                    className={`cursor-pointer hover:text-white ${
-                      activeItem === item ? "text-white" : ""
+                    className={`cursor-pointer px-2 py-1 rounded-md ${
+                      activeItem === item
+                        ? "bg-purple-700 text-white"
+                        : "hover:text-white hover:bg-purple-700"
                     }`}
                   >
                     {item}
@@ -53,11 +50,27 @@ function Sidebar() {
             )}
           </li>
 
-          {/* Other menu items */}
-          <li className="flex items-center gap-2 hover:bg-purple-700 px-3 py-2 rounded-lg cursor-pointer">
+          {/* Billing */}
+          <li
+            onClick={() => handleActive("Billing")}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer ${
+              activeItem === "Billing"
+                ? "bg-purple-700 text-white"
+                : "hover:bg-purple-700"
+            }`}
+          >
             <span>{/*📋*/}</span> Billing
           </li>
-          <li className="flex items-center gap-2 hover:bg-purple-700 px-3 py-2 rounded-lg cursor-pointer">
+
+          {/* View All Guests */}
+          <li
+            onClick={() => handleActive("View All Guests")}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer ${
+              activeItem === "View All Guests"
+                ? "bg-purple-700 text-white"
+                : "hover:bg-purple-700"
+            }`}
+          >
             <span>{/*👥*/}</span> View All Guests
           </li>
         </ul>

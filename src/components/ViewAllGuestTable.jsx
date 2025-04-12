@@ -47,7 +47,6 @@ function ViewAllGuest() {
                 </div>
               </td>
             </tr>
-            {/* More rows as needed */}
           </tbody>
         </table>
       </div>

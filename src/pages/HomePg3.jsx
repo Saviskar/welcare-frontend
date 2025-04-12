@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../components/Sidebar.jsx";
-import GuardianContactForm from "../components/FamilyContactForm.jsx";
+import GuardianContactForm from "../components/GuardianContactForm.jsx";
 
 function FamilyContact() {
   return (

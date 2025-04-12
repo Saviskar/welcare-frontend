@@ -1,61 +1,50 @@
 import React from "react";
 import FormInput from "./FormInput";
+import { Link } from "react-router-dom";
 
 function GuardianContactForm() {
   return (
     <>
       <h2 className="text-xl font-semibold mb-6 text-gray-700">
-        Register Guests
+        Guardian Contact Details
       </h2>
       <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {/* Guest Fields */}
-        <FormInput label="Surname" id="surname" placeholder="Enter surname" />
         <FormInput
-          label="Given Names"
-          id="givenNames"
-          placeholder="Enter given names"
+          label="Guardian Surname"
+          id="guardianSurname"
+          placeholder="Enter surname"
         />
         <FormInput
-          label="Preferred Names"
-          id="preferredNames"
-          placeholder="Enter preferred names"
-        />
-        <FormInput label="Age" id="age" type="number" placeholder="Enter age" />
-        <FormInput
-          label="Marital Status"
-          id="maritalStatus"
-          placeholder="Enter marital status"
+          label="Guardian Given Name"
+          id="guardianGivenName"
+          placeholder="Enter given name"
         />
         <FormInput
-          label="Current Location"
-          id="currentLocation"
-          placeholder="Enter location"
+          label="Guardian Address"
+          id="guardianAddress"
+          placeholder="Enter address"
         />
         <FormInput
-          label="Postcode"
-          id="postcode"
+          label="Guardian Postcode"
+          id="guardianPostcode"
           placeholder="Enter postcode"
         />
         <FormInput
-          label="Telephone"
-          id="telephone"
+          label="Guardian Mobile"
+          id="guardianMobile"
           type="tel"
-          placeholder="Enter telephone number"
+          placeholder="Enter mobile number"
         />
         <FormInput
-          label="Religion"
-          id="religion"
-          placeholder="Enter religion"
+          label="Guardian Email"
+          id="guardianEmail"
+          type="email"
+          placeholder="Enter email"
         />
         <FormInput
-          label="Country of Birth"
-          id="countryOfBirth"
-          placeholder="Enter country"
-        />
-        <FormInput
-          label="Preferred Language"
-          id="preferredLanguage"
-          placeholder="Enter language"
+          label="Guardian Relationship to Guest"
+          id="guardianRelationship"
+          placeholder="Enter relationship"
         />
 
         {/* Submit Buttons */}
@@ -64,7 +53,7 @@ function GuardianContactForm() {
             to="/familyContact"
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
           >
-            Next
+            Back
           </Link>
           <button
             type="submit"

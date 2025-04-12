@@ -6,7 +6,7 @@ function Registerguests() {
   return (
     <>
       <h2 className="text-xl font-semibold mb-6 text-gray-700">
-        Register Guests
+        Guest Details
       </h2>
       <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Guest Fields */}

@@ -15,6 +15,7 @@ function App() {
         <Route path="/familyContact" element={<HomePg2 />} />
         {/* Family Contacts Details Page*/}
         <Route path="/guardianContact" element={<HomePg3 />} />
+        {/* Guardian Contact Details Page */}
         <Route path="/viewAllGuest" element={<ViewAllGuest />} />
       </Routes>
     </BrowserRouter>

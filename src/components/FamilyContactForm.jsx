@@ -7,52 +7,105 @@ function FamilyContactForm() {
   return (
     <>
       <h2 className="text-xl font-semibold mb-6 text-gray-700">
-        Guardian Contact Details
+        Family Contact Details
       </h2>
       <form className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* First Contact */}
+        <h3 className="md:col-span-2 text-lg font-medium text-gray-600">
+          First Contact
+        </h3>
+
         <FormInput
-          label="Guardian Surname"
-          id="guardianSurname"
+          label="Surname"
+          id="firstContactSurname"
           placeholder="Enter surname"
         />
-
         <FormInput
-          label="Guardian Given Name"
-          id="guardianGivenName"
+          label="Given Name"
+          id="firstContactGivenName"
           placeholder="Enter given name"
         />
-
         <FormInput
-          label="Guardian Address"
-          id="guardianAddress"
+          label="Address"
+          id="firstContactAddress"
           placeholder="Enter address"
         />
-
         <FormInput
-          label="Guardian Postcode"
-          id="guardianPostcode"
+          label="Postcode"
+          id="firstContactPostcode"
           placeholder="Enter postcode"
         />
-
         <FormInput
-          label="Guardian Mobile"
-          id="guardianMobile"
+          label="Telephone Daily"
+          id="firstContactTelDaily"
           type="tel"
-          placeholder="Enter mobile number"
+          placeholder="Enter daily phone"
         />
-
         <FormInput
-          label="Guardian Email"
-          id="guardianEmail"
+          label="Telephone Afterhours"
+          id="firstContactTelAfterhours"
+          type="tel"
+          placeholder="Enter afterhours phone"
+        />
+        <FormInput
+          label="Relationship to Guest"
+          id="firstContactRelationship"
+          placeholder="Enter relationship"
+        />
+        <FormInput
+          label="Email Address"
+          id="firstContactEmail"
           type="email"
           placeholder="Enter email"
         />
 
+        {/* Second Contact */}
+        <h3 className="md:col-span-2 text-lg font-medium text-gray-600 mt-4">
+          Second Contact
+        </h3>
+
         <FormInput
-          label="Guardian Relationship to Guest"
-          id="guardianRelationship"
+          label="Surname"
+          id="secondContactSurname"
+          placeholder="Enter surname"
+        />
+        <FormInput
+          label="Given Name"
+          id="secondContactGivenName"
+          placeholder="Enter given name"
+        />
+        <FormInput
+          label="Address"
+          id="secondContactAddress"
+          placeholder="Enter address"
+        />
+        <FormInput
+          label="Postcode"
+          id="secondContactPostcode"
+          placeholder="Enter postcode"
+        />
+        <FormInput
+          label="Telephone Daily"
+          id="secondContactTelDaily"
+          type="tel"
+          placeholder="Enter daily phone"
+        />
+        <FormInput
+          label="Telephone Afterhours"
+          id="secondContactTelAfterhours"
+          type="tel"
+          placeholder="Enter afterhours phone"
+        />
+        <FormInput
+          label="Relationship to Guest"
+          id="secondContactRelationship"
           placeholder="Enter relationship"
+        />
+        <FormInput
+          label="Email Address"
+          id="secondContactEmail"
+          type="email"
+          placeholder="Enter email"
         />
 
         {/* Submit Buttons */}
@@ -64,7 +117,7 @@ function FamilyContactForm() {
             Back
           </Link>
           <Link
-            to=""
+            to="/guardianContact"
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
           >
             Next
