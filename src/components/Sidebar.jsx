@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 
 function Sidebar() {
+  // UI States
   const [showSubmenu, setShowSubmenu] = useState(true);
+  const [activeItem, setActiveItem] = useState("");
+
+  // Set the text as active function
+  const handleActive = (item) => {
+    setActiveItem(item);
+  };
 
   return (
     <div className="bg-gradient-to-b from-indigo-900 via-purple-800 to-blue-900 text-white rounded-xl p-4 flex flex-col justify-between min-h-screen">
@@ -21,26 +28,27 @@ function Sidebar() {
               <span>{showSubmenu ? "▾" : "▸"}</span>
             </div>
 
-            {/* If showSubMenu is true then show (<ul className> <li> ......</li></ul>) -> these stuff */}
             {showSubmenu && (
               <ul className="ml-4 mt-4 space-y-2 text-sm text-gray-300">
-                <li className="hover:text-white cursor-pointer">
-                  Guest Details
-                </li>
-                <li className="hover:text-white cursor-pointer">
-                  Family Contact
-                </li>
-                <li className="hover:text-white cursor-pointer">Guardian</li>
-                <li className="hover:text-white cursor-pointer">
-                  Medical Details
-                </li>
-                <li className="hover:text-white cursor-pointer">
-                  Living Situation
-                </li>
-                <li className="hover:text-white cursor-pointer">Care Needs</li>
-                <li className="hover:text-white cursor-pointer">
-                  Funeral Arrangements1
-                </li>
+                {[
+                  "Guest Details",
+                  "Family Contact",
+                  "Guardian",
+                  "Medical Details",
+                  "Living Situation",
+                  "Care Needs",
+                  "Funeral Arrangements1",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    onClick={() => handleActive(item)}
+                    className={`cursor-pointer hover:text-white ${
+                      activeItem === item ? "text-white" : ""
+                    }`}
+                  >
+                    {item}
+                  </li>
+                ))}
               </ul>
             )}
           </li>
