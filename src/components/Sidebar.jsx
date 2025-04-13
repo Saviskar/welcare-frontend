@@ -83,7 +83,7 @@ function Sidebar() {
       {/* User Info */}
       <div className="mt-10 flex items-center gap-3 border-t border-gray-700 pt-4 mb-2">
         <img
-          src=""
+          // src=""
           alt="User avatar"
           className="w-10 h-10 rounded-full bg-gray-500"
         />
