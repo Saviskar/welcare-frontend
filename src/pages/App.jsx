@@ -5,6 +5,7 @@ import LoginPage from "./LoginPage";
 import HomePg2 from "./HomePg2";
 import HomePg3 from "./HomePg3";
 import ViewAllGuest from "./ViewAllGuest";
+import BillingPage from "./BillingPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/guardianContact" element={<HomePg3 />} />
         {/* Guardian Contact Details Page */}
         <Route path="/viewAllGuest" element={<ViewAllGuest />} />
+        <Route path="/billing" element={<BillingPage />} />
       </Routes>
     </BrowserRouter>
   );

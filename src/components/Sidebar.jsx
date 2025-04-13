@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [showSubmenu, setShowSubmenu] = useState(true);
@@ -27,7 +28,9 @@ function Sidebar() {
                   : "hover:bg-purple-700"
               }`}
             >
-              <span className="flex items-center gap-2">Dashboard</span>
+              <Link to="/home" className="flex items-center gap-2">
+                Dashboard
+              </Link>
               <span>{showSubmenu ? "▾" : "▸"}</span>
             </div>
 
@@ -59,7 +62,7 @@ function Sidebar() {
                 : "hover:bg-purple-700"
             }`}
           >
-            <span>{/*📋*/}</span> Billing
+            <span>{/*📋*/}</span> <Link to="/viewAllGuest">Billing</Link>
           </li>
 
           {/* View All Guests */}
@@ -72,6 +75,7 @@ function Sidebar() {
             }`}
           >
             <span>{/*👥*/}</span> View All Guests
+            {/* <Link to="/viewAllGuest">Guest Details</Link> */}
           </li>
         </ul>
       </div>
