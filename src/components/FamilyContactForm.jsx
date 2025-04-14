@@ -33,7 +33,7 @@ function FamilyContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:3000/residents/create";
+    const url = "http://localhost:3000/residentContacts/create";
 
     axios
       .post(url, { ...values, residentId })
@@ -45,7 +45,7 @@ function FamilyContactForm() {
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: [e.target.value] });
+    setValues({ ...values, [e.target.id]: e.target.value });
   };
 
   return (
@@ -194,12 +194,6 @@ function FamilyContactForm() {
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
           >
             Back
-          </Link>
-          <Link
-            to="/guardianContact"
-            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
-          >
-            Next
           </Link>
           <button
             type="submit"
