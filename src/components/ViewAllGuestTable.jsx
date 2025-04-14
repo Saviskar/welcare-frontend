@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function ViewAllGuest() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    axios
+      .get("http://localhost:3000/residents")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen p-4">
       <div className="overflow-x-auto shadow-md rounded-2xl border border-violet-200">
         <table className="table-auto w-full text-left text-sm text-violet-900">
           <thead className="bg-violet-100 text-violet-800 font-semibold">
@@ -20,33 +34,47 @@ function ViewAllGuest() {
               <th className="px-4 py-3">Actions</th>
             </tr>
           </thead>
-
           <tbody>
-            <tr className="hover:bg-violet-100 transition-colors">
-              <td className="px-4 py-3">Smith</td>
-              <td className="px-4 py-3">John</td>
-              <td className="px-4 py-3">Johnny</td>
-              <td className="px-4 py-3">72</td>
-              <td className="px-4 py-3">Married</td>
-              <td className="px-4 py-3">(555) 123-4567</td>
-              <td className="px-4 py-3">2000</td>
-              <td className="px-4 py-3">Christianity</td>
-              <td className="px-4 py-3">Australia</td>
-              <td className="px-4 py-3">English</td>
-              <td className="px-4 py-3">
-                <div className="flex gap-2">
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
-                    View
-                  </button>
-                  <button className="bg-violet-500 hover:bg-violet-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
-                    Edit
-                  </button>
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
-                    Delete
-                  </button>
-                </div>
-              </td>
-            </tr>
+            {data.map((resident) => (
+              <tr
+                key={resident.residentId}
+                className="text-center hover:bg-violet-100 transition-colors"
+              >
+                <td className="px-4 py-3">{resident.surname}</td>
+                <td className="px-4 py-3">{resident.givenName}</td>
+                <td className="px-4 py-3">{resident.preferredNames}</td>
+                <td className="px-4 py-3">{resident.age}</td>
+                <td className="px-4 py-3">{resident.maritalStatus}</td>
+                <td className="px-4 py-3">{resident.telephone}</td>
+                <td className="px-4 py-3">{resident.postCode}</td>
+                <td className="px-4 py-3">{resident.religion}</td>
+                <td className="px-4 py-3">{resident.countryOfBirth}</td>
+                <td className="px-4 py-3">{resident.preferredLanguage}</td>
+                <td className="px-4 py-3">
+                  <div className="flex justify-center gap-2">
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
+                      View
+                    </button>
+                    <button className="bg-violet-500 hover:bg-violet-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
+                      Edit
+                    </button>
+                    <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+            {data.length === 0 && (
+              <tr>
+                <td
+                  colSpan="11"
+                  className="text-center text-gray-500 py-6 font-medium"
+                >
+                  No resident data available.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
