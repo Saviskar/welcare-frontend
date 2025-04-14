@@ -38,8 +38,10 @@ function FamilyContactForm() {
     axios
       .post(url, { ...values, residentId })
       .then((res) => {
-        console.log(res);
-        navigate("/guardianContact");
+        const residentId = res.data.insertId;
+        console.log(residentId); // check if the resident id is printed on the console when submitting // did not build backend for create guardian contact
+        // console.log(res);
+        navigate(`/guardianContact/${residentId}`);
       })
       .catch((err) => console.log(err));
   };
