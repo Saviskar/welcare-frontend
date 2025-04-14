@@ -13,7 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/home" element={<Home />} /> {/* Guest Details Page*/}
-        <Route path="/familyContact" element={<HomePg2 />} />
+        {/* <Route path="/familyContact" element={<HomePg2 />} />
+         */}
+        <Route path="/familyContact/:residentId" element={<HomePg2 />} />
         {/* Family Contacts Details Page*/}
         <Route path="/guardianContact" element={<HomePg3 />} />
         {/* Guardian Contact Details Page */}

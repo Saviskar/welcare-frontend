@@ -19,6 +19,20 @@ function Registerguests() {
 
   const navigate = useNavigate();
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const url = "http://localhost:3000/residents/create";
+
+  //   axios
+  //     .post(url, values)
+  //     .then((res) => {
+  //       console.log(res);
+  //       navigate(`/familyContact/${residentId}`);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -27,8 +41,11 @@ function Registerguests() {
     axios
       .post(url, values)
       .then((res) => {
-        console.log(res);
-        navigate("/familyContact");
+        const residentId = res.data.insertId;
+        console.log("Resident created with ID:", residentId);
+
+        // Navigate to familyContact with residentId in the URL
+        navigate(`/familyContact/${residentId}`);
       })
       .catch((err) => console.log(err));
   };
@@ -120,12 +137,12 @@ function Registerguests() {
         />
 
         <div className="md:col-span-2 text-right mt-2">
-          <Link
+          {/* <Link
             to="/familyContact"
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
           >
             Next
-          </Link>
+          </Link> */}
           <button
             type="submit"
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition"

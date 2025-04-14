@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import FormInput from "./FormInput";
-import Home from "../pages/Home";
 import axios from "axios";
 
 function FamilyContactForm() {
@@ -29,13 +28,15 @@ function FamilyContactForm() {
 
   const navigate = useNavigate();
 
+  const { residentId } = useParams();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const url = "http://localhost:3000/residents/create";
 
     axios
-      .post(url, values)
+      .post(url, { ...values, residentId })
       .then((res) => {
         console.log(res);
         navigate("/guardianContact");
