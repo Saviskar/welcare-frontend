@@ -26,8 +26,6 @@ function GuardianContactForm() {
     axios
       .post(url, { ...values, residentId })
       .then((res) => {
-        const residentId = res.data.insertId;
-        console.log(residentId); // check if the resident id is printed on the console when submitting // did not build backend for create guardian contact
         // console.log(res);
         navigate(`/home`);
       })
@@ -109,7 +107,7 @@ function GuardianContactForm() {
           </Link>
           <button
             type="submit"
-            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition"
+            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition cursor-pointer"
           >
             Submit
           </button>
