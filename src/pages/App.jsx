@@ -6,6 +6,7 @@ import HomePg2 from "./HomePg2";
 import HomePg3 from "./HomePg3";
 import ViewAllGuest from "./ViewAllGuest";
 import BillingPage from "./BillingPage";
+import ContactDetailsPage from "./ContactDetailsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         {/* Guardian Contact Details Page */}
         <Route path="/viewAllGuest" element={<ViewAllGuest />} />
         <Route path="/billing" element={<BillingPage />} />
+        <Route path="/contactDetails/:id" element={<ContactDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );

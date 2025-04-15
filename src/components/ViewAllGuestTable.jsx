@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function ViewAllGuest() {
   const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ function ViewAllGuest() {
   };
 
   return (
-    <div className="min-h-screen p-4">
+    <div className="h-full p-4">
       <div className="overflow-x-auto shadow-md rounded-2xl border border-violet-200">
         <table className="table-auto w-full text-left text-sm text-violet-900">
           <thead className="bg-violet-100 text-violet-800 font-semibold">
@@ -52,9 +53,12 @@ function ViewAllGuest() {
                 <td className="px-4 py-3">{resident.preferredLanguage}</td>
                 <td className="px-4 py-3">
                   <div className="flex justify-center gap-2">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
+                    <Link
+                      to={`/contactDetails/${resident.residentId}`}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer"
+                    >
                       View
-                    </button>
+                    </Link>
                     <button className="bg-violet-500 hover:bg-violet-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
                       Edit
                     </button>
