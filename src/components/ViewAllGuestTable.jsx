@@ -16,6 +16,15 @@ function ViewAllGuest() {
       .catch((err) => console.log(err));
   };
 
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:3000/residents/delete/${id}`)
+      .then((res) => {
+        location.reload();
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="h-full p-4">
       <div className="overflow-x-auto shadow-md rounded-2xl border border-violet-200">
