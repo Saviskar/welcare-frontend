@@ -3,26 +3,27 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 function ContactDetailsTables() {
-  const { residentId } = useParams();
+  const { id } = useParams();
 
   const [contactData, setContactData] = useState([]);
   const [guardianData, setGuardianData] = useState([]);
+  const [residentData, setResidentData] = useState([]);
 
   useEffect(() => {
-    fetchContactData(residentId);
-    // fetchGuardianData(residentId);
+    fetchContactData();
+    fetchGuardianData();
   }, []);
 
   const fetchContactData = () => {
     axios
-      .get(`http://localhost:3000/residentContacts/${residentId}`)
+      .get(`http://localhost:3000/residentContacts/${id}`)
       .then((res) => setContactData(res.data))
       .catch((err) => console.log(err));
   };
 
   const fetchGuardianData = () => {
     axios
-      .get(`http://localhost:3000/guardians/${residentId}`)
+      .get(`http://localhost:3000/guardians/${id}`)
       .then((res) => setGuardianData(res.data))
       .catch((err) => console.log(err));
   };

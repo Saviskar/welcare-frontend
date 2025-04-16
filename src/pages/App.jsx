@@ -7,6 +7,7 @@ import HomePg3 from "./HomePg3";
 import ViewAllGuest from "./ViewAllGuest";
 import BillingPage from "./BillingPage";
 import ContactDetailsPage from "./ContactDetailsPage";
+import ContactDetailsTables from "../components/ContactDetailsTables";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/viewAllGuest" element={<ViewAllGuest />} />
         <Route path="/billing" element={<BillingPage />} />
         <Route path="/contactDetails/:id" element={<ContactDetailsPage />} />
+        {/* <Route path="/contactDetails/:id" element={<ContactDetailsTables />} /> */}
       </Routes>
     </BrowserRouter>
   );

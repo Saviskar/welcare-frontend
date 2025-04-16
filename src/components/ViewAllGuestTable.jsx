@@ -11,7 +11,7 @@ function ViewAllGuest() {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:3000/residents")
+      .get("http://localhost:3000/residents/")
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   };
@@ -62,7 +62,10 @@ function ViewAllGuest() {
                     <button className="bg-violet-500 hover:bg-violet-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
                       Edit
                     </button>
-                    <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
+                    <button
+                      onClick={() => handleDelete(resident.residentId)}
+                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer"
+                    >
                       Delete
                     </button>
                   </div>
