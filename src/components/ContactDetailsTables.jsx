@@ -40,20 +40,16 @@ function ContactDetailsTables() {
     <div className="h-full p-6 space-y-10">
       {/* Contact Section */}
       <div>
-        <h2 className="text-2xl font-bold text-violet-800 mb-4">
-          Family Contact Details
-        </h2>
-
         {/* Resident Details */}
         <div className="mb-6">
-          <h3 className="text-lg font-semibold text-violet-700 mb-2">
+          <h3 className="text-2xl font-bold text-violet-800 mb-4">
             Resident Details
           </h3>
           <div className="overflow-x-auto border border-violet-200 rounded-2xl shadow-md">
             <table className="table-auto w-full text-sm text-violet-900">
               <thead className="bg-violet-100 text-violet-800 font-semibold text-center">
                 <tr>
-                  <th className="px-4 py-3">Resident ID</th>
+                  {/* <th className="px-4 py-3">Resident ID</th> */}
                   <th className="px-4 py-3">Surname</th>
                   <th className="px-4 py-3">Given Name</th>
                   <th className="px-4 py-3">Preferred Names</th>
@@ -68,7 +64,7 @@ function ContactDetailsTables() {
               </thead>
               <tbody>
                 <tr className="text-center hover:bg-violet-50 transition-colors">
-                  <td className="px-4 py-3">{residentData.residentId}</td>
+                  {/* <td className="px-4 py-3">{residentData.residentId}</td> */}
                   <td className="px-4 py-3">{residentData.surname}</td>
                   <td className="px-4 py-3">{residentData.givenName}</td>
                   <td className="px-4 py-3">{residentData.preferredNames}</td>
@@ -86,6 +82,10 @@ function ContactDetailsTables() {
             </table>
           </div>
         </div>
+
+        <h2 className="text-2xl font-bold text-violet-800 mb-4">
+          Family Contact Details
+        </h2>
 
         {/* First Contact */}
         <div className="mb-6">

@@ -10,8 +10,8 @@ function FamilyContactForm() {
     firstContactGivenName: "",
     firstContactAddress: "",
     firstContactPostcode: "",
-    firstContactTelDaily: "",
-    firstContactTelAfterhours: "",
+    firstContactTelephoneDaily: "",
+    firstContactTelephoneAfterhours: "",
     firstContactRelationship: "",
     firstContactEmail: "",
 
@@ -20,8 +20,8 @@ function FamilyContactForm() {
     secondContactGivenName: "",
     secondContactAddress: "",
     secondContactPostcode: "",
-    secondContactTelDaily: "",
-    secondContactTelAfterhours: "",
+    secondContactTelephoneDaily: "",
+    secondContactTelephoneAfterhours: "",
     secondContactRelationship: "",
     secondContactEmail: "",
   });
@@ -92,16 +92,16 @@ function FamilyContactForm() {
         />
         <FormInput
           label="Telephone Daily"
-          id="firstContactTelDaily"
-          value={values.firstContactTelDaily}
+          id="firstContactTelephoneDaily"
+          value={values.firstContactTelephoneDaily}
           type="tel"
           placeholder="Enter daily phone"
           onChange={handleChange}
         />
         <FormInput
           label="Telephone Afterhours"
-          id="firstContactTelAfterhours"
-          value={values.firstContactTelAfterhours}
+          id="firstContactTelephoneAfterhours"
+          value={values.firstContactTelephoneAfterhours}
           type="tel"
           placeholder="Enter afterhours phone"
           onChange={handleChange}
@@ -157,16 +157,16 @@ function FamilyContactForm() {
         />
         <FormInput
           label="Telephone Daily"
-          id="secondContactTelDaily"
-          value={values.secondContactTelDaily}
+          id="secondContactTelephoneDaily"
+          value={values.secondContactTelephoneDaily}
           type="tel"
           placeholder="Enter daily phone"
           onChange={handleChange}
         />
         <FormInput
           label="Telephone Afterhours"
-          id="secondContactTelAfterhours"
-          value={values.secondContactTelAfterhours}
+          id="secondContactTelephoneAfterhours"
+          value={values.secondContactTelephoneAfterhours}
           type="tel"
           placeholder="Enter afterhours phone"
           onChange={handleChange}
