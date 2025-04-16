@@ -10,9 +10,17 @@ function ContactDetailsTables() {
   const [residentData, setResidentData] = useState([]);
 
   useEffect(() => {
+    fetchResidentData();
     fetchContactData();
     fetchGuardianData();
   }, []);
+
+  const fetchResidentData = () => {
+    axios
+      .get(`http://localhost:3000/residents/${id}`)
+      .then((res) => setResidentData(res.data))
+      .catch((err) => console.log(err));
+  };
 
   const fetchContactData = () => {
     axios
@@ -35,6 +43,49 @@ function ContactDetailsTables() {
         <h2 className="text-2xl font-bold text-violet-800 mb-4">
           Family Contact Details
         </h2>
+
+        {/* Resident Details */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold text-violet-700 mb-2">
+            Resident Details
+          </h3>
+          <div className="overflow-x-auto border border-violet-200 rounded-2xl shadow-md">
+            <table className="table-auto w-full text-sm text-violet-900">
+              <thead className="bg-violet-100 text-violet-800 font-semibold text-center">
+                <tr>
+                  <th className="px-4 py-3">Resident ID</th>
+                  <th className="px-4 py-3">Surname</th>
+                  <th className="px-4 py-3">Given Name</th>
+                  <th className="px-4 py-3">Preferred Names</th>
+                  <th className="px-4 py-3">Age</th>
+                  <th className="px-4 py-3">Marital Status</th>
+                  <th className="px-4 py-3">Telephone</th>
+                  <th className="px-4 py-3">Postcode</th>
+                  <th className="px-4 py-3">Religion</th>
+                  <th className="px-4 py-3">Country of Birth</th>
+                  <th className="px-4 py-3">Preferred Language</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="text-center hover:bg-violet-50 transition-colors">
+                  <td className="px-4 py-3">{residentData.residentId}</td>
+                  <td className="px-4 py-3">{residentData.surname}</td>
+                  <td className="px-4 py-3">{residentData.givenName}</td>
+                  <td className="px-4 py-3">{residentData.preferredNames}</td>
+                  <td className="px-4 py-3">{residentData.age}</td>
+                  <td className="px-4 py-3">{residentData.maritalStatus}</td>
+                  <td className="px-4 py-3">{residentData.telephone}</td>
+                  <td className="px-4 py-3">{residentData.postCode}</td>
+                  <td className="px-4 py-3">{residentData.religion}</td>
+                  <td className="px-4 py-3">{residentData.countryOfBirth}</td>
+                  <td className="px-4 py-3">
+                    {residentData.preferredLanguage}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         {/* First Contact */}
         <div className="mb-6">
