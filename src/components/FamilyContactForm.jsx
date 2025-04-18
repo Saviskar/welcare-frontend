@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import FormInput from "./FormInput";
+import FormInput from "./FormInput/FormInput";
 import axios from "axios";
 
 function FamilyContactForm() {

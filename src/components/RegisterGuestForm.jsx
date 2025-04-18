@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import FormInput from "./FormInput";
+import FormInput from "./FormInput/FormInput";
+import SelectInput from "./FormInput/SelectInput";
 import axios from "axios";
 
 function Registerguests() {
+  
+  const maritalStatus = ["Single","Married"];
+  
   const [values, setValues] = useState({
     surname: "",
     givenName: "",
@@ -57,7 +61,7 @@ function Registerguests() {
   return (
     <>
       <h2 className="text-xl font-semibold mb-6 text-gray-700">
-        Guest Details
+        Register Guest
       </h2>
       <form
         onSubmit={handleSubmit}
@@ -92,10 +96,11 @@ function Registerguests() {
           placeholder="Enter age"
           onChange={handleChange}
         />
-        <FormInput
+        <SelectInput
           label="Marital Status"
           id="maritalStatus"
           value={values.maritalStatus}
+          options={maritalStatus}
           placeholder="Enter marital status"
           onChange={handleChange}
         />

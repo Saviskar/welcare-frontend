@@ -1,14 +1,14 @@
 import React from "react";
 import Sidebar from "../components/Layout/Layout.jsx";
-import Registerguests from "../components/RegisterGuestForm.jsx";
+import FamilyContactForm from "../components/FamilyContactForm.jsx";
 
-function Home() {
+function FamilyContact() {
   return (
         <div className="col-span-3 border border-gray-200 bg-white p-6 shadow-md">
           {/* Form */}
-          <Registerguests />
+          <FamilyContactForm />
         </div>
   );
 }
 
-export default Home;
+export default FamilyContact;
