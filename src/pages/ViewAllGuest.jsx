@@ -1,19 +1,14 @@
 import React from "react";
-import ViewAllGuestTable from "../components/ViewAllGuestTable";
-import Sidebar from "../components/Sidebar";
+import ViewAllGuestTable from "../components/ViewGuestTable";
+import Sidebar from "../components/Layout/Layout";
 
 function ViewAllGuest() {
   return (
     <>
-      <div className="grid grid-cols-[1fr_2fr_2fr_2fr] gap-4 p-4 min-h-screen bg-gray-100">
-        {/* Sidebar */}
-        <Sidebar />
-
-        <div className="col-span-3 border border-gray-200 bg-white p-6 rounded-xl shadow-md">
+        <div className="col-span-3 border border-gray-200 bg-white p-6 shadow-md">
           {/* Form */}
           <ViewAllGuestTable />
         </div>
-      </div>
     </>
   );
 }

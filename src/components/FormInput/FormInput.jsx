@@ -1,4 +1,3 @@
-// components/FormInput.jsx
 import React from "react";
 
 function FormInput({ label, type = "text", id, placeholder, value, onChange }) {

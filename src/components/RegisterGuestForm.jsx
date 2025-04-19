@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import FormInput from "./FormInput";
+import { useNavigate } from "react-router-dom";
+import FormInput from "./FormInput/FormInput";
+import SelectInput from "./FormInput/SelectInput";
 import axios from "axios";
 
 function Registerguests() {
+  
+  const maritalStatus = ["Single","Married"];
+  
   const [values, setValues] = useState({
     surname: "",
     givenName: "",
@@ -19,6 +23,20 @@ function Registerguests() {
 
   const navigate = useNavigate();
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const url = "http://localhost:3000/residents/create";
+
+  //   axios
+  //     .post(url, values)
+  //     .then((res) => {
+  //       console.log(res);
+  //       navigate(`/familyContact/${residentId}`);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -27,8 +45,11 @@ function Registerguests() {
     axios
       .post(url, values)
       .then((res) => {
-        console.log(res);
-        navigate("/familyContact");
+        const residentId = res.data.insertId;
+        console.log("Resident created with ID:", residentId);
+
+        // Navigate to familyContact with residentId in the URL
+        navigate(`/familyContact/${residentId}`);
       })
       .catch((err) => console.log(err));
   };
@@ -40,7 +61,7 @@ function Registerguests() {
   return (
     <>
       <h2 className="text-xl font-semibold mb-6 text-gray-700">
-        Guest Details
+        Register Guest
       </h2>
       <form
         onSubmit={handleSubmit}
@@ -75,10 +96,11 @@ function Registerguests() {
           placeholder="Enter age"
           onChange={handleChange}
         />
-        <FormInput
+        <SelectInput
           label="Marital Status"
           id="maritalStatus"
           value={values.maritalStatus}
+          options={maritalStatus}
           placeholder="Enter marital status"
           onChange={handleChange}
         />
@@ -120,12 +142,12 @@ function Registerguests() {
         />
 
         <div className="md:col-span-2 text-right mt-2">
-          <Link
+          {/* <Link
             to="/familyContact"
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
           >
             Next
-          </Link>
+          </Link> */}
           <button
             type="submit"
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition"

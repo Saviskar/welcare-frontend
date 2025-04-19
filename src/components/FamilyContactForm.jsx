@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import FormInput from "./FormInput";
-import Home from "../pages/Home";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import FormInput from "./FormInput/FormInput";
 import axios from "axios";
 
 function FamilyContactForm() {
@@ -11,8 +10,8 @@ function FamilyContactForm() {
     firstContactGivenName: "",
     firstContactAddress: "",
     firstContactPostcode: "",
-    firstContactTelDaily: "",
-    firstContactTelAfterhours: "",
+    firstContactTelephoneDaily: "",
+    firstContactTelephoneAfterhours: "",
     firstContactRelationship: "",
     firstContactEmail: "",
 
@@ -21,30 +20,32 @@ function FamilyContactForm() {
     secondContactGivenName: "",
     secondContactAddress: "",
     secondContactPostcode: "",
-    secondContactTelDaily: "",
-    secondContactTelAfterhours: "",
+    secondContactTelephoneDaily: "",
+    secondContactTelephoneAfterhours: "",
     secondContactRelationship: "",
     secondContactEmail: "",
   });
 
   const navigate = useNavigate();
 
+  const { residentId } = useParams();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const url = "http://localhost:3000/residents/create";
+    const url = "http://localhost:3000/residentContacts/create";
 
     axios
-      .post(url, values)
+      .post(url, { ...values, residentId })
       .then((res) => {
-        console.log(res);
-        navigate("/guardianContact");
+        // console.log(res);
+        navigate(`/guardianContact/${residentId}`);
       })
       .catch((err) => console.log(err));
   };
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: [e.target.value] });
+    setValues({ ...values, [e.target.id]: e.target.value });
   };
 
   return (
@@ -91,16 +92,16 @@ function FamilyContactForm() {
         />
         <FormInput
           label="Telephone Daily"
-          id="firstContactTelDaily"
-          value={values.firstContactTelDaily}
+          id="firstContactTelephoneDaily"
+          value={values.firstContactTelephoneDaily}
           type="tel"
           placeholder="Enter daily phone"
           onChange={handleChange}
         />
         <FormInput
           label="Telephone Afterhours"
-          id="firstContactTelAfterhours"
-          value={values.firstContactTelAfterhours}
+          id="firstContactTelephoneAfterhours"
+          value={values.firstContactTelephoneAfterhours}
           type="tel"
           placeholder="Enter afterhours phone"
           onChange={handleChange}
@@ -156,16 +157,16 @@ function FamilyContactForm() {
         />
         <FormInput
           label="Telephone Daily"
-          id="secondContactTelDaily"
-          value={values.secondContactTelDaily}
+          id="secondContactTelephoneDaily"
+          value={values.secondContactTelephoneDaily}
           type="tel"
           placeholder="Enter daily phone"
           onChange={handleChange}
         />
         <FormInput
           label="Telephone Afterhours"
-          id="secondContactTelAfterhours"
-          value={values.secondContactTelAfterhours}
+          id="secondContactTelephoneAfterhours"
+          value={values.secondContactTelephoneAfterhours}
           type="tel"
           placeholder="Enter afterhours phone"
           onChange={handleChange}
@@ -193,12 +194,6 @@ function FamilyContactForm() {
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
           >
             Back
-          </Link>
-          <Link
-            to="/guardianContact"
-            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
-          >
-            Next
           </Link>
           <button
             type="submit"
