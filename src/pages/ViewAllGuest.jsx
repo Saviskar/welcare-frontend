@@ -1,5 +1,5 @@
 import React from "react";
-import ViewAllGuestTable from "../components/ViewAllGuestTable";
+import ViewAllGuestTable from "../components/ViewGuestTable";
 import Sidebar from "../components/Layout/Layout";
 
 function ViewAllGuest() {

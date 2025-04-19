@@ -1,6 +1,6 @@
 import React from "react";
 
-function SelectInput({ label, type = "text", id, placeholder, value, options,onChange }) {
+function SelectInput({ label, id, placeholder, value, options,onChange }) {
   return (
     <div>
       <label

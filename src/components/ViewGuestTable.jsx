@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {useGetGuestQuery} from "../api/welcareAPI.js"
 
-function ViewAllGuest() {
-  const [data, setData] = useState([]);
+function ViewGuest(){
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = () => {
-    axios
-      .get("http://localhost:3000/residents/")
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
-  };
+  const {data = [],isLoading,isError} = useGetGuestQuery();
 
   const handleDelete = (id) => {
     axios
@@ -98,4 +89,4 @@ function ViewAllGuest() {
   );
 }
 
-export default ViewAllGuest;
+export default ViewGuest;
