@@ -1,27 +1,26 @@
-import React, { useState} from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import FormInput from "../components/FormInput/FormInput";
-import {useLoginUserMutation} from '../api/welcareAPI'
+import { useLoginUserMutation } from "../api/welcareAPI";
 import { useDispatch } from "react-redux";
-import {login} from "../store/userSlice.js"
+import { login } from "../store/userSlice.js";
 
 function LoginPage() {
-
-  const [credentials,setCredentials] = useState({
-    username:'',
-    password:''
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
   });
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [loginUser,{isLoading,isUpdating}] = useLoginUserMutation();
+  const [loginUser, { isLoading, isUpdating }] = useLoginUserMutation();
 
-  const handleChange = (e) =>{
-     setCredentials({...credentials,[e.target.id]:e.target.value})
-  }
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.id]: e.target.value });
+  };
 
-  //The "mutation trigger" is a function that when called, will fire off the mutation request for that endpoint. 
+  //The "mutation trigger" is a function that when called, will fire off the mutation request for that endpoint.
   //Calling the "mutation trigger" returns a promise with an unwrap property,
   //which can be called to unwrap the mutation call and provide the raw response/error.
 
@@ -29,17 +28,14 @@ function LoginPage() {
     e.preventDefault();
 
     try {
-     const user = await loginUser(credentials).unwrap();
-     dispatch(login(user))
-     navigate("/")
+      const user = await loginUser(credentials).unwrap();
+      dispatch(login(user));
+      navigate("/");
     } catch (error) {
-      console.error("Login Failed",error);
+      console.error("Login Failed", error);
       //show error
     }
-    
-  }
-
-
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-purple-800 to-blue-900 flex flex-col items-center justify-center px-4">
