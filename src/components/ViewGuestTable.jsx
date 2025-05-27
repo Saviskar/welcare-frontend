@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useGetGuestsQuery } from "../api/welcareAPI.js";
+// import { useGetGuestsQuery } from "../api/welcareAPI.js";
+import { useGetGuestsQuery } from "../api/endpoints/ResidentEndpoint";
 
 function ViewGuest() {
   const { data = [], isLoading, isError } = useGetGuestsQuery();

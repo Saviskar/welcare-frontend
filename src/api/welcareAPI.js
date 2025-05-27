@@ -7,28 +7,5 @@ export const welcareAPI = createApi({
     baseUrl: "http://localhost:3000/api/",
     credentials: "include",
   }),
-  endpoints: (build) => ({
-    loginUser: build.mutation({
-      query: ({ username, password }) => ({
-        url: "user/login",
-        method: "POST",
-        body: {
-          username: username,
-          password: password,
-        },
-      }),
-    }),
-    authenticate: build.query({
-      query: () => "user/authenticate",
-    }),
-    getGuests: build.query({
-      query: () => "/resident",
-      transformResponse: (response) => {
-        return response[0];
-      },
-    }),
-  }),
+  endpoints: () => ({}),
 });
-
-export const { useLoginUserMutation, useAuthenticateQuery, useGetGuestsQuery } =
-  welcareAPI;
