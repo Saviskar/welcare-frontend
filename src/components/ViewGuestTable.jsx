@@ -4,8 +4,6 @@ import { useGetGuestsQuery } from "../api/welcareAPI.js";
 function ViewGuest() {
   const { data = [], isLoading, isError } = useGetGuestsQuery();
 
-  console.log("Fetched residents:", data);
-
   // const handleDelete = (id) => {
   //   axios
   //     .delete(`http://localhost:3000/residents/delete/${id}`)

@@ -24,7 +24,6 @@ export const welcareAPI = createApi({
     getGuests: build.query({
       query: () => "/resident",
       transformResponse: (response) => {
-        console.log(response[0]);
         return response[0];
       },
     }),
