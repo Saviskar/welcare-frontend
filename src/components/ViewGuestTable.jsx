@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import {useGetGuestQuery} from "../api/welcareAPI.js"
+import { useGetGuestsQuery } from "../api/welcareAPI.js";
 
-function ViewGuest(){
+function ViewGuest() {
+  const { data = [], isLoading, isError } = useGetGuestsQuery();
 
-  const {data = [],isLoading,isError} = useGetGuestQuery();
+  console.log("Fetched residents:", data);
 
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3000/residents/delete/${id}`)
-      .then((res) => {
-        location.reload();
-      })
-      .catch((err) => console.log(err));
-  };
+  // const handleDelete = (id) => {
+  //   axios
+  //     .delete(`http://localhost:3000/residents/delete/${id}`)
+  //     .then((res) => {
+  //       location.reload();
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <div className="h-full p-4">
@@ -36,9 +35,9 @@ function ViewGuest(){
             </tr>
           </thead>
           <tbody>
-            {data.map((resident) => (
+            {data.map((resident, index) => (
               <tr
-                key={resident.residentId}
+                key={index}
                 className="text-center hover:bg-violet-100 transition-colors"
               >
                 <td className="px-4 py-3">{resident.surname}</td>
