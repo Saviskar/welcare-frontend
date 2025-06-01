@@ -5,8 +5,12 @@ const residentApi = welcareAPI.injectEndpoints({
     getGuests: build.query({
       query: () => "/resident",
       transformResponse: (response) => {
+        // this only return the first item in the array might cause issue when there are multiple guests/residents
         return response[0];
       },
+    }),
+    getGuest: build.query({
+      query: (id) => `/resident/${id}`,
     }),
     deleteGuest: build.mutation({
       query: (id) => ({
@@ -17,4 +21,5 @@ const residentApi = welcareAPI.injectEndpoints({
   }),
 });
 
-export const { useGetGuestsQuery, useDeleteGuestMutation } = residentApi;
+export const { useGetGuestsQuery, useGetGuestQuery, useDeleteGuestMutation } =
+  residentApi;
