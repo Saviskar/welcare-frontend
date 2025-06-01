@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
-// import { useGetGuestsQuery } from "../api/welcareAPI.js";
-import { useGetGuestsQuery } from "../api/endpoints/ResidentEndpoint";
+import {
+  useGetGuestsQuery,
+  useDeleteGuestMutation,
+} from "../api/endpoints/ResidentEndpoint";
 
 function ViewGuest() {
-  const { data = [], isLoading, isError } = useGetGuestsQuery();
+  // isLoading & isError is added so that we can show loading message and error message if we want to
+  const { data = [], isLoading, isError, refetch } = useGetGuestsQuery();
+  const [deleteGuest] = useDeleteGuestMutation();
 
-  // const handleDelete = (id) => {
-  //   axios
-  //     .delete(`http://localhost:3000/residents/delete/${id}`)
-  //     .then((res) => {
-  //       location.reload();
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const handleDelete = async (id) => {
+    try {
+      await deleteGuest(id).unwrap();
+      refetch();
+    } catch (err) {
+      console.log("Delete failed:", err);
+    }
+  };
 
   return (
     <div className="h-full p-4">

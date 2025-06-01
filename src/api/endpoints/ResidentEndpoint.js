@@ -8,7 +8,13 @@ const residentApi = welcareAPI.injectEndpoints({
         return response[0];
       },
     }),
+    deleteGuest: build.mutation({
+      query: (id) => ({
+        url: `/residents/delete/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
-export const { useGetGuestsQuery } = residentApi;
+export const { useGetGuestsQuery, useDeleteGuestMutation } = residentApi;
