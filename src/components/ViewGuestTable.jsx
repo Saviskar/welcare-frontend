@@ -10,6 +10,11 @@ function ViewGuest() {
   const [deleteGuest] = useDeleteGuestMutation();
 
   const handleDelete = async (id) => {
+    const confirm = window.confirm(
+      "Are you sure you want to delete this guest?"
+    );
+    if (!confirm) return;
+
     try {
       await deleteGuest(id).unwrap();
       refetch();

@@ -10,7 +10,7 @@ const residentApi = welcareAPI.injectEndpoints({
     }),
     deleteGuest: build.mutation({
       query: (id) => ({
-        url: `/residents/delete/${id}`,
+        url: `/resident/delete/${id}`,
         method: "DELETE",
       }),
     }),
