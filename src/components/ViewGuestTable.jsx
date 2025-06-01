@@ -61,7 +61,7 @@ function ViewGuest() {
                 <td className="px-4 py-3">
                   <div className="flex justify-center gap-2">
                     <Link
-                      to={`/contactDetails/${resident.residentId}`}
+                      to={`/contact/${resident.residentId}`}
                       className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer"
                     >
                       View
