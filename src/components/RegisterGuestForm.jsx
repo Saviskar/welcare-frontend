@@ -2,60 +2,37 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FormInput from "./FormInput/FormInput";
 import SelectInput from "./FormInput/SelectInput";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { updateField, resetForm } from "../store/guestSlice";
+import { useCreateGuestMutation } from "../api/endpoints/ResidentEndpoint";
 
 function Registerguests() {
-  
-  const maritalStatus = ["Single","Married"];
-  
-  const [values, setValues] = useState({
-    surname: "",
-    givenName: "",
-    preferredNames: "",
-    age: "",
-    maritalStatus: "",
-    telephone: "",
-    postCode: "",
-    religion: "",
-    countryOfBirth: "",
-    preferredLanguage: "",
-  });
-
+  const maritalStatus = ["Single", "Married"];
+  const values = useSelector((state) => state.guestForm);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
+  console.log(values);
 
-  //   const url = "http://localhost:3000/residents/create";
-
-  //   axios
-  //     .post(url, values)
-  //     .then((res) => {
-  //       console.log(res);
-  //       navigate(`/familyContact/${residentId}`);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const url = "http://localhost:3000/residents/create";
-
-    axios
-      .post(url, values)
-      .then((res) => {
-        const residentId = res.data.insertId;
-        console.log("Resident created with ID:", residentId);
-
-        // Navigate to familyContact with residentId in the URL
-        navigate(`/familyContact/${residentId}`);
-      })
-      .catch((err) => console.log(err));
-  };
+  const [createGuest, { isLoading, isError }] = useCreateGuestMutation();
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.id]: e.target.value });
+    dispatch(updateField({ field: e.target.id, value: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log("Submitting guest data:", values);
+
+    try {
+      const res = await createGuest(values).unwrap();
+      const residentId = res.residentId;
+      dispatch(resetForm());
+      navigate(`/family/${residentId}`);
+    } catch (err) {
+      console.error("Submission error:", err);
+    }
   };
 
   return (
@@ -71,21 +48,18 @@ function Registerguests() {
           label="Surname"
           id="surname"
           value={values.surname}
-          placeholder="Enter surname"
           onChange={handleChange}
         />
         <FormInput
           label="Given Name"
           id="givenName"
           value={values.givenName}
-          placeholder="Enter given name"
           onChange={handleChange}
         />
         <FormInput
           label="Preferred Names"
           id="preferredNames"
           value={values.preferredNames}
-          placeholder="Enter preferred names"
           onChange={handleChange}
         />
         <FormInput
@@ -93,7 +67,6 @@ function Registerguests() {
           id="age"
           type="number"
           value={values.age}
-          placeholder="Enter age"
           onChange={handleChange}
         />
         <SelectInput
@@ -101,14 +74,12 @@ function Registerguests() {
           id="maritalStatus"
           value={values.maritalStatus}
           options={maritalStatus}
-          placeholder="Enter marital status"
           onChange={handleChange}
         />
         <FormInput
           label="Postcode"
           id="postCode"
           value={values.postCode}
-          placeholder="Enter postcode"
           onChange={handleChange}
         />
         <FormInput
@@ -116,43 +87,33 @@ function Registerguests() {
           id="telephone"
           type="tel"
           value={values.telephone}
-          placeholder="Enter telephone number"
           onChange={handleChange}
         />
         <FormInput
           label="Religion"
           id="religion"
           value={values.religion}
-          placeholder="Enter religion"
           onChange={handleChange}
         />
         <FormInput
           label="Country of Birth"
           id="countryOfBirth"
           value={values.countryOfBirth}
-          placeholder="Enter country"
           onChange={handleChange}
         />
         <FormInput
           label="Preferred Language"
           id="preferredLanguage"
           value={values.preferredLanguage}
-          placeholder="Enter language"
           onChange={handleChange}
         />
-
         <div className="md:col-span-2 text-right mt-2">
-          {/* <Link
-            to="/familyContact"
-            className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition mr-1"
-          >
-            Next
-          </Link> */}
           <button
             type="submit"
+            disabled={isLoading}
             className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-2 rounded-md font-medium transition"
           >
-            Submit
+            {isLoading ? "Submitting..." : "Submit"}
           </button>
         </div>
       </form>

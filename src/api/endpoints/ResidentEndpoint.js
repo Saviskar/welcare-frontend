@@ -12,6 +12,13 @@ const residentApi = welcareAPI.injectEndpoints({
     getGuest: build.query({
       query: (id) => `/resident/${id}`,
     }),
+    createGuest: build.mutation({
+      query: (guestData) => ({
+        url: `/resident/create`,
+        method: "POST",
+        body: guestData,
+      }),
+    }),
     deleteGuest: build.mutation({
       query: (id) => ({
         url: `/resident/delete/${id}`,
@@ -21,5 +28,9 @@ const residentApi = welcareAPI.injectEndpoints({
   }),
 });
 
-export const { useGetGuestsQuery, useGetGuestQuery, useDeleteGuestMutation } =
-  residentApi;
+export const {
+  useGetGuestsQuery,
+  useGetGuestQuery,
+  useCreateGuestMutation,
+  useDeleteGuestMutation,
+} = residentApi;
