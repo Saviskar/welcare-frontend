@@ -14,14 +14,14 @@ const residentApi = welcareAPI.injectEndpoints({
     }),
     createGuest: build.mutation({
       query: (guestData) => ({
-        url: `/resident/create`,
+        url: `/resident`,
         method: "POST",
         body: guestData,
       }),
     }),
     deleteGuest: build.mutation({
       query: (id) => ({
-        url: `/resident/delete/${id}`,
+        url: `/resident/${id}`,
         method: "DELETE",
       }),
     }),

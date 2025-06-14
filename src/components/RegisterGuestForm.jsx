@@ -29,7 +29,7 @@ function Registerguests() {
       const res = await createGuest(values).unwrap();
       const residentId = res.residentId;
       dispatch(resetForm());
-      navigate(`/family/${residentId}`);
+      navigate(`/family`);
     } catch (err) {
       console.error("Submission error:", err);
     }
