@@ -9,6 +9,8 @@ function ViewGuest() {
   const { data = [], isLoading, isError, refetch } = useGetGuestsQuery();
   const [deleteGuest] = useDeleteGuestMutation();
 
+  console.log(data);
+
   const handleDelete = async (id) => {
     const confirm = window.confirm(
       "Are you sure you want to delete this guest?"
@@ -29,6 +31,7 @@ function ViewGuest() {
         <table className="table-auto w-full text-left text-sm text-violet-900">
           <thead className="bg-violet-100 text-violet-800 font-semibold">
             <tr className="text-center">
+              <th className="px-4 py-3">ID</th>
               <th className="px-4 py-3">Surname</th>
               <th className="px-4 py-3">Given Name</th>
               <th className="px-4 py-3">Preferred Names</th>
@@ -48,6 +51,7 @@ function ViewGuest() {
                 key={index}
                 className="text-center hover:bg-violet-100 transition-colors"
               >
+                <td className="px-4 py-3">{resident.residentId}</td>
                 <td className="px-4 py-3">{resident.surname}</td>
                 <td className="px-4 py-3">{resident.givenName}</td>
                 <td className="px-4 py-3">{resident.preferredNames}</td>
