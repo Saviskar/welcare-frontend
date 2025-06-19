@@ -5,7 +5,7 @@ const initialState = {
   givenName: "",
   preferredNames: "",
   age: "",
-  maritalStatus: "Married",
+  maritalStatus: "",
   telephone: "",
   postCode: "",
   religion: "",
