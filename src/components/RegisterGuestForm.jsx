@@ -12,7 +12,7 @@ function Registerguests() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log(values);
+  // console.log(values);
 
   const [createGuest, { isLoading, isError }] = useCreateGuestMutation();
 
@@ -27,7 +27,12 @@ function Registerguests() {
 
     try {
       const res = await createGuest(values).unwrap();
+      // console.log(res);
       const residentId = res.residentId;
+      console.log(residentId);
+
+      alert(`Guest successfully registered! Resident ID: ${residentId}`);
+
       dispatch(resetForm());
       navigate(`/guest`);
     } catch (err) {
