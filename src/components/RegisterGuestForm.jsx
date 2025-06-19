@@ -7,7 +7,7 @@ import { updateField, resetForm } from "../store/guestSlice";
 import { useCreateGuestMutation } from "../api/endpoints/ResidentEndpoint";
 
 function Registerguests() {
-  const maritalStatus = ["Single", "Married"];
+  const maritalStatus = ["Single", "Married", "Divorced", "Widowed"];
   const values = useSelector((state) => state.guestForm);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function Registerguests() {
       const res = await createGuest(values).unwrap();
       const residentId = res.residentId;
       dispatch(resetForm());
-      navigate(`/family`);
+      navigate(`/guest`);
     } catch (err) {
       console.error("Submission error:", err);
     }
