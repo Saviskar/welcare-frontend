@@ -42,6 +42,7 @@ function ViewGuest() {
               <th className="px-4 py-3">Religion</th>
               <th className="px-4 py-3">Country of Birth</th>
               <th className="px-4 py-3">Preferred Language</th>
+              <th className="px-4 py-3">Created At</th>
               <th className="px-4 py-3">Actions</th>
             </tr>
           </thead>
@@ -64,6 +65,9 @@ function ViewGuest() {
                   <td className="px-4 py-3">{resident.religion}</td>
                   <td className="px-4 py-3">{resident.countryOfBirth}</td>
                   <td className="px-4 py-3">{resident.preferredLanguage}</td>
+                  <td className="px-4 py-3">
+                    {new Date(resident.updated_at).toLocaleDateString()}
+                  </td>
                   <td className="px-4 py-3">
                     <div className="flex justify-center gap-2">
                       <Link
