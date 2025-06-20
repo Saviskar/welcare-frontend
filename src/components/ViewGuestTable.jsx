@@ -46,43 +46,45 @@ function ViewGuest() {
             </tr>
           </thead>
           <tbody>
-            {data.map((resident, index) => (
-              <tr
-                key={index}
-                className="text-center hover:bg-violet-100 transition-colors"
-              >
-                <td className="px-4 py-3">{resident.residentId}</td>
-                <td className="px-4 py-3">{resident.surname}</td>
-                <td className="px-4 py-3">{resident.givenName}</td>
-                <td className="px-4 py-3">{resident.preferredNames}</td>
-                <td className="px-4 py-3">{resident.age}</td>
-                <td className="px-4 py-3">{resident.maritalStatus}</td>
-                <td className="px-4 py-3">{resident.telephone}</td>
-                <td className="px-4 py-3">{resident.postCode}</td>
-                <td className="px-4 py-3">{resident.religion}</td>
-                <td className="px-4 py-3">{resident.countryOfBirth}</td>
-                <td className="px-4 py-3">{resident.preferredLanguage}</td>
-                <td className="px-4 py-3">
-                  <div className="flex justify-center gap-2">
-                    <Link
-                      to={`/contact/${resident.residentId}`}
-                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer"
-                    >
-                      View
-                    </Link>
-                    <button className="bg-violet-500 hover:bg-violet-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(resident.residentId)}
-                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {[...data]
+              .sort((a, b) => b.residentId - a.residentId)
+              .map((resident, index) => (
+                <tr
+                  key={index}
+                  className="text-center hover:bg-violet-100 transition-colors"
+                >
+                  <td className="px-4 py-3">{resident.residentId}</td>
+                  <td className="px-4 py-3">{resident.surname}</td>
+                  <td className="px-4 py-3">{resident.givenName}</td>
+                  <td className="px-4 py-3">{resident.preferredNames}</td>
+                  <td className="px-4 py-3">{resident.age}</td>
+                  <td className="px-4 py-3">{resident.maritalStatus}</td>
+                  <td className="px-4 py-3">{resident.telephone}</td>
+                  <td className="px-4 py-3">{resident.postCode}</td>
+                  <td className="px-4 py-3">{resident.religion}</td>
+                  <td className="px-4 py-3">{resident.countryOfBirth}</td>
+                  <td className="px-4 py-3">{resident.preferredLanguage}</td>
+                  <td className="px-4 py-3">
+                    <div className="flex justify-center gap-2">
+                      <Link
+                        to={`/contact/${resident.residentId}`}
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer"
+                      >
+                        View
+                      </Link>
+                      <button className="bg-violet-500 hover:bg-violet-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer">
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDelete(resident.residentId)}
+                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-xl text-xs cursor-pointer"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             {data.length === 0 && (
               <tr>
                 <td
